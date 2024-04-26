@@ -1,4 +1,4 @@
-package com.example.personalwellnessapp;
+package com.example.personalwellnessapp.login;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.personalwellnessapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -20,12 +21,13 @@ public class ProfileActivity extends AppCompatActivity {
     TextView userInfoEmail;
     Button signOutBtn;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        userInfoEmail = (TextView) findViewById(R.id.userNmaeTextView);
+        userInfoEmail = (TextView) findViewById(R.id.userNameTextView);
 
         signOutBtn = (Button) findViewById(R.id.signOutButton);
         signOutBtn.setOnClickListener(new View.OnClickListener() {

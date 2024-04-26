@@ -3,8 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.personalwellnessapp.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/nav_settings"
         android:orderInCategory="100"
-        android:title="twat"
+        android:title="Settings"
         app:showAsAction="never" />
+
+    <item android:id="@+id/nav_dash"
+        android:title="Dash Board"/>
+
+    <item android:id="@+id/nav_log"
+        android:title="Log Activity"/>
+
+    <item android:id="@+id/nav_progress"
+        android:title="Progress Tracker"/>
+
+    <item android:id="@+id/nav_tips"
+        android:title="Wellness Tips"/>
 </menu>

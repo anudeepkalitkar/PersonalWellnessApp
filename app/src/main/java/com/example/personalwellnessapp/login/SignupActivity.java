@@ -1,4 +1,4 @@
-package com.example.personalwellnessapp;
+package com.example.personalwellnessapp.login;
 
 
 import android.content.Intent;
@@ -13,9 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import com.example.personalwellnessapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

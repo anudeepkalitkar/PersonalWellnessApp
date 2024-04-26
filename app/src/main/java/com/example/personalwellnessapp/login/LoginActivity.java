@@ -1,4 +1,4 @@
-package com.example.personalwellnessapp;
+package com.example.personalwellnessapp.login;
 
 
 import android.annotation.SuppressLint;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.personalwellnessapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

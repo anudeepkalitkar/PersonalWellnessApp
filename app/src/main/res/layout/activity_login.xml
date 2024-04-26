@@ -9,13 +9,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/loginTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="@string/loginText"
+            android:textSize="30sp"
+            android:textStyle="italic"
+            android:typeface="monospace" />
+
+        <ImageView
+            android:id="@+id/applogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="80dp"
+
+            android:layout_marginBottom="500dp"
+            android:contentDescription="@string/app_icon_decp"
+            android:src="@drawable/app_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="292dp"
             android:layout_height="48dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="106dp"
+            android:layout_marginTop="306dp"
             android:ems="10"
             android:hint="@string/emailEdit"
             android:importantForAutofill="no"
@@ -26,19 +53,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/createAccTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="288dp"
+            android:layout_height="48dp"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="76dp"
-            android:text="@string/signUp"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
+            android:layout_marginTop="372dp"
+            android:ems="10"
+            android:hint="@string/passwordEdit"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColorHint="#546E7A"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
 
         <Button
             android:id="@+id/loginbutton"
@@ -56,33 +85,24 @@
             app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
-        <EditText
-            android:id="@+id/passwordEditText"
-            android:layout_width="288dp"
-            android:layout_height="48dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="172dp"
-            android:ems="10"
-            android:hint="@string/passwordEdit"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
-            android:textColorHint="#546E7A"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
 
         <TextView
-            android:id="@+id/loginTitleTextView"
+            android:id="@+id/createAccTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="45dp"
-            android:text="@string/loginText"
-            android:textSize="30sp"
-            android:textStyle="italic"
-            android:typeface="monospace" />
+            android:layout_marginBottom="76dp"
+            android:text="@string/signUp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+
+
+
 
         <TextView
             android:id="@+id/resetPwTextView"

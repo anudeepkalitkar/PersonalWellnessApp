@@ -14,4 +14,26 @@
     <string name="resetPasswordText">To reset password, enter your email, press the button and check your email for further instructions</string>
     <string name="resetPasswordBtn">Reset Password</string>
     <string name="returnToLoginTextView">Return to Login Screen</string>
+    <string name="app_icon_decp">app icon</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="add_mood">Add Mood</string>
+    <string name="add_water">Add Water Consumed</string>
+    <string name="add_calorie_intake">"Add Calories Consumed "</string>
+    <string name="add_calroie_burnt">Add Calorie burnt</string>
+    <string name="set_goals">Set Goals</string>
+    <string name="because">Because...</string>
+    <string name="water_consumed">0</string>
+    <string name="calories_burnt_in_cal">Calories Burnt in cal</string>
+    <string name="log_calories_burnt">Log Calories Burnt</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="calorie_intake">Calorie Intake</string>
+    <string name="dinner">Dinner</string>
+    <string name="food_consumed_in_calories">Food consumed in Calories</string>
+    <string name="lunch">Lunch</string>
+    <string name="time_of_meal">Time of meal</string>
+    <string name="log_new_mood">Log New Mood</string>
+    <string name="i_felt">I felt...</string>
+    <string name="log_water_intake">Log Water Intake</string>
+    <string name="water_consumed_in_gallons">Water Consumed in Gallons</string>
+    <string name="welcome">Welcome</string>
 </resources>
