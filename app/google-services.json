@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "223841446507",
+    "project_id": "personalwellnessapp",
+    "storage_bucket": "personalwellnessapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:223841446507:android:72d6f39e89d09990bd5f2e",
+        "android_client_info": {
+          "package_name": "com.example.personalwellnessapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRK9SAm3GIVsONJupZ9KZ6rcdvKBtFeIk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
