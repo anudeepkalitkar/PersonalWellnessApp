@@ -36,4 +36,5 @@
     <string name="log_water_intake">Log Water Intake</string>
     <string name="water_consumed_in_gallons">Water Consumed in Gallons</string>
     <string name="welcome">Welcome</string>
+    <string name="back">Back</string>
 </resources>

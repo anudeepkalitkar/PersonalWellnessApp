@@ -16,8 +16,9 @@
             android:layout_marginTop="87dp"
             android:ems="10"
             android:hint="@string/nameEdit"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
-            android:importantForAutofill="no" />
+            android:minHeight="48dp" />
 
         <Button
             android:id="@+id/signUpButton"
@@ -54,8 +55,9 @@
             android:layout_marginTop="155dp"
             android:ems="10"
             android:hint="@string/emailEdit"
+            android:importantForAutofill="no"
             android:inputType="textEmailAddress"
-            android:importantForAutofill="no" />
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/signUpPasswordEditText"
@@ -66,8 +68,9 @@
             android:layout_marginTop="225dp"
             android:ems="10"
             android:hint="@string/passwordEdit"
+            android:importantForAutofill="no"
             android:inputType="textPassword"
-            android:importantForAutofill="no" />
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/signUpConfirmPasswordEditText"
@@ -78,8 +81,9 @@
             android:layout_marginTop="290dp"
             android:ems="10"
             android:hint="@string/confirmPasswordEdit"
+            android:importantForAutofill="no"
             android:inputType="textPassword"
-            android:importantForAutofill="no" />
+            android:minHeight="48dp" />
 
         <TextView
             android:id="@+id/loginReturnTextView"

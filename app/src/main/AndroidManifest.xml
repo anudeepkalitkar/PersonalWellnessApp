@@ -22,11 +22,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.ProfileActivity"
+
+
+        <activity android:name=".HomeActivity"
             android:theme="@style/Theme.PersonalWellnessApp"
             />
-        <activity
-            android:name=".login.SignupActivity"
+        <activity android:name=".DashboardActivity"
+            android:theme="@style/Theme.PersonalWellnessApp"
+            />
+        <activity android:name=".AddWaterActivity"
+            android:theme="@style/Theme.PersonalWellnessApp"
+            />
+        <activity android:name=".AddMoodActivity"
+            android:theme="@style/Theme.PersonalWellnessApp"
+            />
+        <activity android:name=".AddCaloriesIntakeActivity"
+            android:theme="@style/Theme.PersonalWellnessApp"
+            />
+        <activity android:name=".AddCalorieBurntActivity"
+            android:theme="@style/Theme.PersonalWellnessApp"
+            />
+
+        <activity android:name=".SetGoalsActivity"
+            android:theme="@style/Theme.PersonalWellnessApp"
+            />
+
+        <activity android:name=".login.SignupActivity"
             android:theme="@style/Theme.PersonalWellnessApp" />
         <activity android:name=".login.ResetPasswordActivity"
             android:theme="@style/Theme.PersonalWellnessApp"/>

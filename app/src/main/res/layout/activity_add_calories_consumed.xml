@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="247dp"
-            android:background="#"
+
             android:orientation="vertical">
 
 
@@ -132,14 +132,31 @@
                 android:padding="5dp">
 
                 <Button
-                    android:id="@+id/add_water"
+                    android:id="@+id/add_calorie_intake_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:enabled="false"
-                    android:text="@string/add_water"
+                    android:enabled="true"
+                    android:text="@string/add_calorie_intake"
                     android:textAlignment="center"
                     android:textColor="#050505"
                     android:textSize="20sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/back_calorie_intake_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:enabled="true"
+                    android:text="@string/back"
+                    android:textAlignment="center"
+                    android:textColor="#050505"
+                    android:textSize="20sp"
+                    tools:ignore="VisualLintButtonSize" />
             </LinearLayout>
         </LinearLayout>
 
