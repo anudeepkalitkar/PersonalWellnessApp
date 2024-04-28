@@ -81,7 +81,7 @@ public class HomeActivity extends AppCompatActivity {
             String name = user.getDisplayName();
             String email = user.getEmail();
             Uri photoUrl = user.getPhotoUrl();
-            email = "Welcome  " + email;
+            email = "Welcome  " + name;
             userName.setText(email);
             boolean emailVerified = user.isEmailVerified();
             String uid = user.getUid();

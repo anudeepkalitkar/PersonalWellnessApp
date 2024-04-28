@@ -16,6 +16,7 @@ import com.example.personalwellnessapp.HomeActivity;
 import com.example.personalwellnessapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -100,8 +101,6 @@ public class SignupActivity extends AppCompatActivity{
                         userInfo.put("email", userEmail);
                         databaseReference.child("/"+userName).setValue(userInfo);
 
-                        Toast.makeText(SignupActivity.this, "Welcome!",
-                                    Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(SignupActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
@@ -112,9 +111,16 @@ public class SignupActivity extends AppCompatActivity{
 
     private void createAuthStateListener() {
         firebaseAuthListener = firebaseAuth -> {
+            final String userName = signUpNameEditTxt.getText().toString().trim();
             final FirebaseUser user = firebaseAuth.getCurrentUser();
             if (user != null) {
-                Intent intent = new Intent(SignupActivity.this, HomeActivity.class);
+                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                        .setDisplayName(userName)
+                        .build();
+                user.updateProfile(profileUpdates);
+                Toast.makeText(SignupActivity.this, "Welcome!",
+                        Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
