@@ -4,7 +4,6 @@ package com.example.personalwellnessapp.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,8 +16,17 @@ import com.example.personalwellnessapp.HomeActivity;
 import com.example.personalwellnessapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class SignupActivity extends AppCompatActivity implements View.OnClickListener{
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class SignupActivity extends AppCompatActivity{
 
     EditText signUpNameEditTxt;
     EditText signUpEmailEditTxt;
@@ -28,7 +36,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     Button signUpBtn;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
-
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
 
     @Override
@@ -36,91 +45,80 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         firebaseAuth = FirebaseAuth.getInstance();
-
-        signUpNameEditTxt = (EditText) findViewById(R.id.signUpNameEditText);
-        signUpEmailEditTxt = (EditText) findViewById(R.id.signUpEmailEditText);
-        signUppasswordEditTxt = (EditText) findViewById(R.id.signUpPasswordEditText);
-        signUpConfirmPasswordEditTxt = (EditText) findViewById(R.id.signUpConfirmPasswordEditText);
-        returnToLoginTextV = (TextView) findViewById(R.id.loginReturnTextView);
-        returnToLoginTextV.setOnClickListener(this);
-        signUpBtn = (Button) findViewById(R.id.signUpButton);
-        signUpBtn.setOnClickListener(this);
-
+        signUpNameEditTxt = findViewById(R.id.signUpNameEditText);
+        signUpEmailEditTxt =  findViewById(R.id.signUpEmailEditText);
+        signUppasswordEditTxt =  findViewById(R.id.signUpPasswordEditText);
+        signUpConfirmPasswordEditTxt =  findViewById(R.id.signUpConfirmPasswordEditText);
+        returnToLoginTextV =  findViewById(R.id.loginReturnTextView);
+        signUpBtn = findViewById(R.id.signUpButton);
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        signUpBtn.setOnClickListener(v ->  createUserAccount());
+        returnToLoginTextV.setOnClickListener(v-> {
+            Intent i2 = new Intent(SignupActivity.this, LoginActivity.class);
+            startActivity(i2);});
         createAuthStateListener();
 
     }
 
 
-    @Override
-    public void onClick(View v) {
-        // default method for handling onClick Events..
-      if(v.getId() == R.id.signUpButton) {
-
-                createUserAccount();
-      }  if(v.getId() == R.id.loginReturnTextView) {
-
-                Intent i2 = new Intent(SignupActivity.this, LoginActivity.class);
-                startActivity(i2);
-        }
-    }
-
 
     public void createUserAccount(){
-        final String createName = signUpNameEditTxt.getText().toString().trim();
-        final String createEmail = signUpEmailEditTxt.getText().toString().trim();
-        String createPassword = signUppasswordEditTxt.getText().toString().trim();
-        String createConfrimPassword = signUpConfirmPasswordEditTxt.getText().toString().trim();
+        final String userName = signUpNameEditTxt.getText().toString().trim();
+        final String userEmail = signUpEmailEditTxt.getText().toString().trim();
+        String password = signUppasswordEditTxt.getText().toString().trim();
+        String confrimPassword = signUpConfirmPasswordEditTxt.getText().toString().trim();
 
+        if(TextUtils.isEmpty(userName)){
+            Toast.makeText(this,"Please enter Name",Toast.LENGTH_LONG).show();
+            return;
+        }
 
-
-        if(TextUtils.isEmpty(createEmail)){
+        if(TextUtils.isEmpty(userEmail)){
             Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(TextUtils.isEmpty(createPassword)){
+        if(TextUtils.isEmpty(password)){
             Toast.makeText(this,"Please enter password", Toast.LENGTH_LONG).show();
             return;
         }
 
+        if(TextUtils.isEmpty(confrimPassword)){
+            Toast.makeText(this,"Please enter confrim password", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if( !TextUtils.equals(password, confrimPassword)) {
+            Toast.makeText(this,"passwords does not match", Toast.LENGTH_LONG).show();
+            return;
+        }
 
-        firebaseAuth.createUserWithEmailAndPassword(createEmail, createPassword)
+        firebaseAuth.createUserWithEmailAndPassword(userEmail, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
+                        Map<String, Object> userInfo = new HashMap<>();
+                        userInfo.put("name", userName);
+                        userInfo.put("email", userEmail);
+                        databaseReference.child("/"+userName).setValue(userInfo);
 
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
-                            Toast.makeText(SignupActivity.this, "Welcome!",
+                        Toast.makeText(SignupActivity.this, "Welcome!",
                                     Toast.LENGTH_SHORT).show();
-
                         } else {
-                            // If sign in fails, display a message to the user.
-
                             Toast.makeText(SignupActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-
                         }
-
-
                 });
-
     }
 
 
     private void createAuthStateListener() {
-        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
-
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                final FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    Intent intent = new Intent(SignupActivity.this, HomeActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                }
+        firebaseAuthListener = firebaseAuth -> {
+            final FirebaseUser user = firebaseAuth.getCurrentUser();
+            if (user != null) {
+                Intent intent = new Intent(SignupActivity.this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
             }
-
         };
     }
 
