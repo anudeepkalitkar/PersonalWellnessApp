@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,10 +25,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class DashboardActivity extends AppCompatActivity {
-    Button backButton;
+    Button backButton, viewMoreButton;
     String userName;
     TextView testingDash;
     DatabaseReference databaseReference;
+
+    ProgressBar waterProgress, calorieBurnProgress;
     Map<String, Integer> caloriesBurntData, waterIntakeData;
 
 
@@ -44,14 +47,28 @@ public class DashboardActivity extends AppCompatActivity {
             userName = user.getDisplayName();
         }
         backButton = findViewById(R.id.back_dashboard_button);
+        viewMoreButton = findViewById(R.id.view_more_button);
         testingDash = findViewById(R.id.detailed_view);
+        waterProgress = findViewById(R.id.progressWater);
+        calorieBurnProgress = findViewById(R.id.progressCaloriesBurned);
         backButton.setOnClickListener(v -> onClickBackButton());
+        viewMoreButton.setOnClickListener( v-> onClickViewMoreButton());
         try{
             getCaloriesBurntFromFireBase(userName);
             getWaterIntakeFromFireBase(userName);
         }
         catch (Exception e){
             Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onClickViewMoreButton() {
+
+        if(testingDash.getVisibility() == TextView.GONE ) {
+            testingDash.setVisibility(TextView.VISIBLE);
+        }
+        else{
+            testingDash.setVisibility(TextView.GONE);
         }
     }
 
@@ -200,8 +217,7 @@ public class DashboardActivity extends AppCompatActivity {
                 caloriesBurntToday = lastEntry.getValue();
                 percentage = (caloriesBurntToday* 100) / calorieBurnGoal;
             }
-            String testingDashData = testingDash.getText().toString();
-
+            calorieBurnProgress.setProgress(percentage);
             testingDash.setText("Detailed View: \n" + "calorie Burn Goal: "+Integer.toString(calorieBurnGoal) +
                     "\ncalories Burnt Today: "+ Integer.toString(caloriesBurntToday) +
                     "\npercentage: "+ Integer.toString(percentage));
@@ -230,6 +246,7 @@ public class DashboardActivity extends AppCompatActivity {
                 waterConsumedToday = lastEntry.getValue();
                 percentage = (waterConsumedToday* 100) / waterIntakeGoal ;
             }
+            waterProgress.setProgress(percentage,true);
             String testingDashData = testingDash.getText().toString();
             testingDash.setText(testingDashData + "\nwater Intake Goal: "+Integer.toString(waterIntakeGoal) +
                     "\nwater Consumed Today: "+ Integer.toString(waterConsumedToday) +

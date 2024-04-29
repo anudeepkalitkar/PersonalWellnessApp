@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="ring"
-    android:innerRadiusRatio="3"
-    android:thicknessRatio="8"
-    android:useLevel="false">
+<rotate
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:fromDegrees="270"
+android:toDegrees="270">
 
-    <solid android:color="#00FFFFFF"/>
-    <stroke
-        android:width="4dp"
-        android:color="#FF0000"
-    />
+<!--styling the progress bar-->
+<shape
+    android:innerRadiusRatio="3"
+    android:shape="ring"
+    android:thickness="10dp"
+    android:useLevel="true">
+    <gradient
+        android:angle="0"
+        android:endColor="#000000"
+        android:startColor="#FF0000"
+        android:type="sweep"
+        android:useLevel="false" />
 </shape>
+
+</rotate>

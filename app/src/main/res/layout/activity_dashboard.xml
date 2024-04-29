@@ -31,16 +31,17 @@
             android:orientation="vertical"
             android:gravity="center"
             android:padding="10dp">
-
             <ProgressBar
                 android:id="@+id/progressWater"
-                style="@android:style/Widget.ProgressBar.Horizontal"
+                style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:background="@drawable/circular_shape"
                 android:indeterminate="false"
+                android:progressDrawable="@drawable/circular_progress_bar"
                 android:max="100"
-                android:progress="5"
-                android:progressDrawable="@drawable/circular_progress_bar"/>
+                android:progress="30"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/tvWaterProgress"
@@ -61,13 +62,15 @@
 
             <ProgressBar
                 android:id="@+id/progressCaloriesBurned"
-                style="@android:style/Widget.ProgressBar.Horizontal"
+                style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:background="@drawable/circular_shape"
                 android:indeterminate="false"
+                android:progressDrawable="@drawable/circular_progress_bar"
                 android:max="100"
-                android:progress="30"
-                android:progressDrawable="@drawable/circular_progress_bar"/>
+                android:progress="5"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/tvCaloriesBurnedProgress"
@@ -88,10 +91,11 @@
         android:textAlignment="center"
         android:textColor="#050505"
         android:textSize="20sp"
+        android:visibility="gone"
         />
 
     <Button
-        android:id="@+id/btnViewMore"
+        android:id="@+id/view_more_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/view_detailed_info"
