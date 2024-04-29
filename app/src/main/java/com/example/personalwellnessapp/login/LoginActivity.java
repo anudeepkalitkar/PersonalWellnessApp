@@ -37,13 +37,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        emailEditText = (EditText) findViewById(R.id.emailEditText);
-        passwordEditText = (EditText) findViewById(R.id.passwordEditText);
-        loginBtn = (Button) findViewById(R.id.loginbutton);
+        emailEditText =  findViewById(R.id.emailEditText);
+        passwordEditText =  findViewById(R.id.passwordEditText);
+        loginBtn =  findViewById(R.id.login_button);
         loginBtn.setOnClickListener(this);
-        resetBtn = (TextView) findViewById(R.id.resetPwTextView);
+        resetBtn =  findViewById(R.id.resetPwTextView);
         resetBtn.setOnClickListener(this);
-        createAccountBtn = (TextView) findViewById(R.id.createAccTextView);
+        createAccountBtn =  findViewById(R.id.createAccTextView);
         createAccountBtn.setOnClickListener(this);
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         // default method for handling onClick Events..
 
-        if(v.getId() == R.id.loginbutton) {
+        if(v.getId() == R.id.login_button) {
             loginUser();
         } else
         if(v.getId() == R.id.createAccTextView) {

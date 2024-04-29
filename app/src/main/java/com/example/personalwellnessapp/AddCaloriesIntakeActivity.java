@@ -64,7 +64,10 @@ public class AddCaloriesIntakeActivity extends AppCompatActivity {
         int caloriesIntake = Integer.parseInt(foodConsumedValue.getText().toString().trim());
 
         Calendar calendar = Calendar.getInstance();
-        long dateTime = calendar.getTimeInMillis();
+        String year = Integer.toString(calendar.get(Calendar.YEAR));
+        String month = Integer.toString(calendar.get(Calendar.MONTH) + 1);
+        String day = Integer.toString(calendar.get(Calendar.DAY_OF_MONTH));
+        String dateTime = year +"/"+month+"/"+day;
 
         Map<String, Object> userInfo = new HashMap<>();
         userInfo.put("date",dateTime );

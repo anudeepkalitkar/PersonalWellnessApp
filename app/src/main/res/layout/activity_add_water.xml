@@ -26,7 +26,7 @@
                 android:layout_marginTop="20dp"
                 android:clickable="false"
                 app:srcCompat="@drawable/app_icon"
-                android:contentDescription="@string/app_icon_decp"
+                android:contentDescription="@string/app_icon_desc"
                 tools:ignore="ContentDescription" />
 
             <TextView

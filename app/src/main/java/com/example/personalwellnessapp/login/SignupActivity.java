@@ -9,20 +9,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.personalwellnessapp.HomeActivity;
 import com.example.personalwellnessapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,13 +25,12 @@ public class SignupActivity extends AppCompatActivity{
 
     EditText signUpNameEditTxt;
     EditText signUpEmailEditTxt;
-    EditText signUppasswordEditTxt;
+    EditText signupPasswordEditTxt;
     EditText signUpConfirmPasswordEditTxt;
     TextView returnToLoginTextV;
     Button signUpBtn;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
-    FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
 
@@ -48,7 +41,7 @@ public class SignupActivity extends AppCompatActivity{
         firebaseAuth = FirebaseAuth.getInstance();
         signUpNameEditTxt = findViewById(R.id.signUpNameEditText);
         signUpEmailEditTxt =  findViewById(R.id.signUpEmailEditText);
-        signUppasswordEditTxt =  findViewById(R.id.signUpPasswordEditText);
+        signupPasswordEditTxt =  findViewById(R.id.signUpPasswordEditText);
         signUpConfirmPasswordEditTxt =  findViewById(R.id.signUpConfirmPasswordEditText);
         returnToLoginTextV =  findViewById(R.id.loginReturnTextView);
         signUpBtn = findViewById(R.id.signUpButton);
@@ -66,7 +59,7 @@ public class SignupActivity extends AppCompatActivity{
     public void createUserAccount(){
         final String userName = signUpNameEditTxt.getText().toString().trim();
         final String userEmail = signUpEmailEditTxt.getText().toString().trim();
-        String password = signUppasswordEditTxt.getText().toString().trim();
+        String password = signupPasswordEditTxt.getText().toString().trim();
         String confrimPassword = signUpConfirmPasswordEditTxt.getText().toString().trim();
 
         if(TextUtils.isEmpty(userName)){

@@ -131,7 +131,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:text="@string/add_calroie_burnt"
+                    android:text="@string/add_calorie_burnt"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

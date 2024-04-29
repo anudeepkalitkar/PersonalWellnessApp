@@ -10,12 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".ui.Mood.MoodActivity"
         android:background="#FFFFFF">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="252dp"
+            android:layout_height="210dp"
 
             android:orientation="vertical">
 
@@ -26,20 +25,19 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 android:clickable="false"
-                app:srcCompat="@drawable/app_icon"
-                android:contentDescription="@string/app_icon_decp" />
+                android:contentDescription="@string/app_icon_desc"
+                app:srcCompat="@drawable/app_icon" />
 
             <TextView
                 android:id="@+id/subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 android:paddingVertical="20sp"
                 android:text="@string/log_new_mood"
                 android:textAlignment="center"
                 android:textColor="#1A237E"
-                android:textSize="25sp" />
-
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -67,149 +65,104 @@
                     android:textSize="20sp"
                     tools:ignore="TextSizeCheck" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
                 android:orientation="vertical"
-                android:padding="10dp">
+                android:padding="0dp"
+                tools:ignore="UselessParent">
 
-                <LinearLayout
-                    android:id="@+id/moodcontainer"
+                <RadioGroup
+                    android:id="@+id/selectMood"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="0dp"
-                    tools:ignore="UselessParent">
+                    android:layout_height="wrap_content">
 
-                    <Button
-                        android:id="@+id/happy"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/happy"
-                        tools:ignore="ButtonStyle" />
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="3"
+                        android:rowCount="3"
+                        android:alignmentMode="alignMargins"
+                        android:columnOrderPreserved="false">
 
-                    <Button
-                        android:id="@+id/sad"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/sad"
-                        tools:ignore="ButtonStyle" />
+                        <RadioButton
+                            android:id="@+id/happy"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="@string/happy"
+                            tools:ignore="VisualLintButtonSize" />
 
-                    <Button
-                        android:id="@+id/cool"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/cool"
-                        tools:ignore="ButtonStyle,SpeakableTextPresentCheck" />
+                        <RadioButton
+                            android:id="@+id/sad"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="@string/sad"
+                            tools:ignore="VisualLintButtonSize" />
 
-                    <Button
-                        android:id="@+id/lovely"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/lovely" />
+                        <RadioButton
+                            android:id="@+id/sleepy"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="@string/sleepy"
+                            tools:ignore="VisualLintButtonSize" />
 
-                    <Button
-                        android:id="@+id/scared"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/scared" />
+                        <RadioButton
+                            android:id="@+id/cool"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="@string/cool"
+                            tools:ignore="VisualLintButtonSize" />
 
-                    <Button
-                        android:id="@+id/nerd"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/nerd" />
+                        <RadioButton
+                            android:id="@+id/depressed"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="@string/depressed"
+                            tools:ignore="VisualLintButtonSize" />
 
-                    <Button
-                        android:id="@+id/sick"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/sick"
-                        tools:ignore="TouchTargetSizeCheck" />
-                </LinearLayout>
+                        <RadioButton
+                            android:id="@+id/scared"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="@string/scared"
+                            tools:ignore="VisualLintButtonSize" />
 
+                        <RadioButton
+                            android:id="@+id/neutral"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="@string/neutral"
+                            tools:ignore="VisualLintButtonSize" />
 
+                        <RadioButton
+                            android:id="@+id/sick"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="@string/sick"
+                            tools:ignore="VisualLintButtonSize" />
+
+                        <RadioButton
+                            android:id="@+id/angry"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="@string/angry"
+                            tools:ignore="VisualLintButtonSize" />
+
+                    </GridLayout>
+                </RadioGroup>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="vertical"
-                android:padding="10dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="0dp"
-                    tools:ignore="UselessParent">
-
-                    <Button
-                        android:id="@+id/neutral"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/neutral" />
-
-                    <Button
-                        android:id="@+id/flushed"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/flushed" />
-
-                    <Button
-                        android:id="@+id/depressed"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/depressed" />
-
-                    <Button
-                        android:id="@+id/angel"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/angel"
-                        tools:ignore="ButtonStyle,SpeakableTextPresentCheck" />
-
-                    <Button
-                        android:id="@+id/sleepy"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/sleepy"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <Button
-                        android:id="@+id/angry"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/angry"
-                        tools:ignore="ButtonStyle,SpeakableTextPresentCheck" />
-
-                    <Button
-                        android:id="@+id/devil"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/devil" />
-                </LinearLayout>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -235,12 +188,15 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/descbox"
+
+                    android:id="@+id/descBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:ignore="LabelFor,TextFields"
+                    android:hint="@string/i_had_pizza"
                     android:importantForAutofill="no"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    tools:ignore="VisualLintTextFieldSize" />
 
             </LinearLayout>
 
@@ -258,7 +214,8 @@
                     android:text="@string/add_mood"
                     android:textAlignment="center"
                     android:textColor="#050505"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="VisualLintButtonSize" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

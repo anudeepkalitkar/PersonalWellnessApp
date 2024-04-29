@@ -25,7 +25,7 @@
                 android:layout_marginTop="20dp"
                 android:clickable="false"
                 app:srcCompat="@drawable/app_icon"
-                android:contentDescription="@string/app_icon_decp" />
+                android:contentDescription="@string/app_icon_desc" />
 
             <TextView
                 android:id="@+id/subtitle"
@@ -88,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:enabled="true"
-                    android:text="@string/add_calroie_burnt"
+                    android:text="@string/add_calorie_burnt"
                     android:textAlignment="center"
                     android:textColor="#050505"
                     android:textSize="20sp"

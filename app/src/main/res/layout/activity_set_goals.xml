@@ -1,6 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:clickable="false"
+        android:contentDescription="@string/app_icon_desc"
+        app:srcCompat="@drawable/app_icon" />
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="20sp"
+        android:text="@string/set_your_daily_goals"
+        android:textAlignment="center"
+        android:textColor="#1A237E"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/set_water_intake_goal"
+        android:textAlignment="center"
+        android:textColor="#050505"
+        android:textSize="20sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+         />
+
+    <EditText
+        android:id="@+id/setWaterGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_water_quantity_in_gallons"
+        android:minHeight="48dp"
+        android:textColorHint="#546E7A"
+        android:inputType="text"
+        android:autofillHints=""
+        tools:ignore="VisualLintTextFieldSize" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/set_calorie_burn_goal"
+        android:textAlignment="center"
+        android:textColor="#050505"
+        android:textSize="20sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        />
+
+    <EditText
+        android:id="@+id/setCaloriesBurnGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_calorie_burn_goal"
+        android:minHeight="48dp"
+        android:textColorHint="#546E7A"
+        android:inputType="text"
+        android:autofillHints=""
+        tools:ignore="VisualLintTextFieldSize" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/set_calorie_intake_goal"
+        android:textAlignment="center"
+        android:textColor="#050505"
+        android:textSize="20sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        />
+
+    <EditText
+        android:id="@+id/setCaloriesIntakeGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_calorie_intake_goal"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#546E7A"
+        android:autofillHints=""
+        tools:ignore="VisualLintTextFieldSize" />
+
+        <Button
+            android:id="@+id/set_goals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="@string/add_mood"
+            android:textAlignment="center"
+            android:textColor="#050505"
+            android:textSize="20sp"
+            tools:ignore="VisualLintButtonSize" />
+
+
+        <Button
+            android:id="@+id/back_set_goals_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="@string/back"
+            android:textAlignment="center"
+            android:textColor="#050505"
+            android:textSize="20sp"
+            tools:ignore="VisualLintButtonSize" />
+
+
+</LinearLayout>
