@@ -79,12 +79,8 @@ public class HomeActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String name = user.getDisplayName();
-            String email = user.getEmail();
-            Uri photoUrl = user.getPhotoUrl();
-            email = "Welcome  " + name;
-            userName.setText(email);
-            boolean emailVerified = user.isEmailVerified();
-            String uid = user.getUid();
+            name = "Welcome  " + name;
+            userName.setText(name);
         }
 
 

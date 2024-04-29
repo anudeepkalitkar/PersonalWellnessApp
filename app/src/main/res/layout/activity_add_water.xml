@@ -94,7 +94,8 @@
                     android:text="@string/add_water"
                     android:textAlignment="center"
                     android:textColor="#050505"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="VisualLintButtonSize" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -110,7 +111,8 @@
                     android:text="@string/back"
                     android:textAlignment="center"
                     android:textColor="#050505"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="VisualLintButtonSize" />
             </LinearLayout>
         </LinearLayout>
 
