@@ -75,14 +75,33 @@
                 android:layout_height="wrap_content"
                 android:text="@string/calories_burned"
                 android:textAlignment="center"/>
+
+
         </LinearLayout>
+
     </LinearLayout>
+    <TextView
+        android:id="@+id/detailed_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#050505"
+        android:textSize="20sp"
+        />
 
     <Button
         android:id="@+id/btnViewMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/view_detailed_info"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+    <Button
+        android:id="@+id/back_dashboard_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"/>
 </LinearLayout>
